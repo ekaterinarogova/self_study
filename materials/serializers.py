@@ -38,4 +38,4 @@ class TestsForUserSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Tests
-        fields = ('question',)
+        fields = ('question', 'possible_answers')

@@ -30,7 +30,8 @@ class Materials(models.Model):
 class Tests(models.Model):
     materials = models.ForeignKey(Materials, on_delete=models.CASCADE, verbose_name='материалы', related_name='tests')
     question = models.TextField(verbose_name='вопрос')
-    correct_answer = models.CharField(max_length=150, verbose_name='правильный ответ')
+    correct_answer = models.CharField(max_length=200, verbose_name='правильный ответ')
+    possible_answers = models.TextField(verbose_name='возможные ответы', null=True, blank=True)
 
     def __str__(self):
         return self.question
