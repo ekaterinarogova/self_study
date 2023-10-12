@@ -7,13 +7,13 @@ class MaterialsCreateAPIView(generics.CreateAPIView):
     serializer_class = MaterialsSerializers
 
 
-# class MaterialsListAPIView(generics.ListAPIView):
-#     serializer_class = MaterialsSerializers
-#
-#     def get_queryset(self):
-#         section = self.kwargs.get('pk')
-#         queryset = Materials.objects.filter(section=section)
-#         return queryset
+class MaterialsListAPIView(generics.ListAPIView):
+    serializer_class = MaterialsSerializers
+
+    def get_queryset(self):
+        section = self.kwargs.get('pk')
+        queryset = Materials.objects.filter(section=section)
+        return queryset
 
 
 class MaterialsRetrieveAPIView(generics.RetrieveAPIView):
