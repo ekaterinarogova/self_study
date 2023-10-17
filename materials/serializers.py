@@ -5,6 +5,7 @@ from materials.models import Section, Materials, Tests
 
 
 class MaterialsSerializers(serializers.ModelSerializer):
+    """Serializer for :model:`materials.Materials`"""
     section = SlugRelatedField(slug_field='title', queryset=Section.objects.all())
 
     class Meta:
@@ -13,6 +14,7 @@ class MaterialsSerializers(serializers.ModelSerializer):
 
 
 class SectionDetailViewSerializers(serializers.ModelSerializer):
+    """Serializer for :model:`materials.Section`"""
     materials = MaterialsSerializers(many=True, read_only=True)
 
     class Meta:
@@ -28,14 +30,14 @@ class SectionSerializers(serializers.ModelSerializer):
 
 
 class TestsSerializers(serializers.ModelSerializer):
-
+    """Serializer for :model:`materials.Tests` for all operations"""
     class Meta:
         model = Tests
         fields = '__all__'
 
 
 class TestsForUserSerializers(serializers.ModelSerializer):
-
+    """Serializer for :model:`materials.Tests` for users, that are not staff"""
     class Meta:
         model = Tests
         fields = ('question', 'possible_answers')

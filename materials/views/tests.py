@@ -1,14 +1,18 @@
 from rest_framework import generics
 from rest_framework.response import Response
 
+from materials.permissions import IsStaff
 from materials.serializers import *
 
 
 class TestsCreateAPIView(generics.CreateAPIView):
+    """Creates an object of :model:`materials.Tests`"""
     serializer_class = TestsSerializers
+    permission_classes = [IsStaff]
 
 
 class TestsListAPIView(generics.ListAPIView):
+    """Views a list of object of :model:`materials.Tests` for the following material"""
     serializer_class = TestsForUserSerializers
 
     def get_queryset(self):
@@ -18,20 +22,26 @@ class TestsListAPIView(generics.ListAPIView):
 
 
 class TestsRetrieveAPIView(generics.RetrieveAPIView):
+    """Views one object of :model:`materials.Tests`"""
     serializer_class = TestsForUserSerializers
     queryset = Tests.objects.all()
 
 
 class TestsUpdateAPIView(generics.UpdateAPIView):
+    """Updates an object of :model:`materials.Tests`"""
     serializer_class = TestsForUserSerializers
     queryset = Tests.objects.all()
+    permission_classes = [IsStaff]
 
 
 class TestsDeleteAPIView(generics.DestroyAPIView):
+    """Deletes an object of :model:`materials.Tests`"""
     queryset = Tests.objects.all()
+    permission_classes = [IsStaff]
 
 
 class TestAnswerView(generics.GenericAPIView):
+    """Verifies user's answer for object of :model:`materials.Tests`"""
     queryset = Tests.objects.all()
     serializer_class = TestsSerializers
 
