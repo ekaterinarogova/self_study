@@ -14,7 +14,7 @@ class MaterialsSerializers(serializers.ModelSerializer):
 
 
 class SectionDetailViewSerializers(serializers.ModelSerializer):
-    """Serializer for :model:`materials.Section`"""
+    """Serializer for :model:`materials.Section` for detail view"""
     materials = MaterialsSerializers(many=True, read_only=True)
 
     class Meta:
@@ -23,7 +23,7 @@ class SectionDetailViewSerializers(serializers.ModelSerializer):
 
 
 class SectionSerializers(serializers.ModelSerializer):
-
+    """Serializer for :model:`materials.Section`"""
     class Meta:
         model = Section
         fields = "__all__"
@@ -31,6 +31,8 @@ class SectionSerializers(serializers.ModelSerializer):
 
 class TestsSerializers(serializers.ModelSerializer):
     """Serializer for :model:`materials.Tests` for all operations"""
+    materials = SlugRelatedField(slug_field='title', queryset=Materials.objects.all())
+
     class Meta:
         model = Tests
         fields = '__all__'
