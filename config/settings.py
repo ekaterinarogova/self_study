@@ -146,8 +146,8 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.IsAuthenticated',
-        ]
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -158,4 +158,3 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://read-and-write.example.com",
 ]
-

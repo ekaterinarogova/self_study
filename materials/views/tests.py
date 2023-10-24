@@ -1,8 +1,9 @@
 from rest_framework import generics
 from rest_framework.response import Response
 
+from materials.models import Tests
 from materials.permissions import IsStaff
-from materials.serializers import *
+from materials.serializers import TestsSerializers, TestsForUserSerializers
 
 
 class TestsCreateAPIView(generics.CreateAPIView):

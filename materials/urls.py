@@ -1,9 +1,12 @@
 from materials.apps import MaterialsConfig
 from django.urls import path
 
-from materials.views.materials import *
-from materials.views.sections import *
-from materials.views.tests import *
+from materials.views.materials import MaterialsListAPIView, MaterialsCreateAPIView, MaterialsRetrieveAPIView, \
+    MaterialsUpdateAPIView, MaterialsDeleteAPIView
+from materials.views.sections import SectionCreateAPIView, SectionListAPIView, SectionRetrieveAPIView, \
+    SectionUpdateAPIView, SectionDeleteAPIView
+from materials.views.tests import TestsListAPIView, TestsRetrieveAPIView, TestsCreateAPIView, TestAnswerView, \
+    TestsUpdateAPIView, TestsDeleteAPIView
 
 app_name = MaterialsConfig.name
 
@@ -27,5 +30,4 @@ urlpatterns = [
     path('tests/<int:pk>/answer/', TestAnswerView.as_view(), name='tests_answer'),
     path('tests/update/<int:pk>/', TestsUpdateAPIView.as_view(), name='tests_update'),
     path('tests/delete/<int:pk>/', TestsDeleteAPIView.as_view(), name='tests_delete'),
-
-    ]
+]

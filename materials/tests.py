@@ -245,4 +245,3 @@ class TestsTestCase(APITestCase):
 
         response = self.client.post('/tests/1/answer/', data=data, headers=headers)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-

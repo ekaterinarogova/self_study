@@ -1,7 +1,8 @@
 from rest_framework import generics
 
+from materials.models import Section
 from materials.permissions import IsStaff
-from materials.serializers import *
+from materials.serializers import SectionSerializers, SectionDetailViewSerializers
 
 
 class SectionCreateAPIView(generics.CreateAPIView):

@@ -42,6 +42,3 @@ class Tests(models.Model):
     class Meta:
         verbose_name = 'тест'
         verbose_name_plural = 'тесты'
-
-
-

@@ -4,8 +4,6 @@
 [![Django](https://img.shields.io/badge/-Django-464646?style=flat-square&logo=Django)](https://www.djangoproject.com/)
 [![Django REST Framework](https://img.shields.io/badge/-Django%20REST%20Framework-464646?style=flat-square&logo=Django%20REST%20Framework)](https://www.django-rest-framework.org/)
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-464646?style=flat-square&logo=PostgreSQL)](https://www.postgresql.org/)
-[![gunicorn](https://img.shields.io/badge/-gunicorn-464646?style=flat-square&logo=gunicorn)](https://gunicorn.org/)
-[![docker](https://img.shields.io/badge/-Docker-464646?style=flat-square&logo=docker)](https://www.docker.com/)
 
 ### Технологии:
 - python 3.11
@@ -19,10 +17,32 @@
 ```
 git clone git@github.com:ekaterinarogova/self_study.git
 ```
-Запуск:
+Создание вирутального окружения:
+```
+python3 -m venv venv
+```
+Активация вирутального окружения:
+```
+source venv/bin/activate
+```
+Установка зависимостей из файла requirements.txt:
+```
+pip install -r requirements.txt
+```
 
 Для запуска проекта необходимо создать .env директории self_study, 
-скопировать в него содержимое файла  .env.sample 
+скопировать в него содержимое файла  .env.sample
+
+Создание и применение миграций:
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
+Запуск:
+```
+python manage.py runserver
+```
 
 Пример использования:
 
