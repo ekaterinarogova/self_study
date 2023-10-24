@@ -1,6 +1,7 @@
 from django.contrib import admin
 from materials.models import Section, Materials, Tests
 
+
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
     list_display = ('title', 'description',)
